@@ -16,7 +16,10 @@ database yang aku kasih. supaya mudah mengikutinya.
 .
 Nah didalam git ini ada file TrollMarket2.bak itu merupakan database yang aku gunakan ya
 anda bisa melakukan import database ke dalam web server yang di punyai.
-Anda bisa melakukan testnya di postman atau pakai swagger atau aplikasi lainnya. 
+Anda bisa melakukan testnya di postman atau aplikasi lainnya.
+Disini aku sudah menyediakan swagger, anda bisa akses melalui link dibawah ini:
+http://localhost:8081/swagger-ui/index.html#/
+tapi jangan lupa ya run dahulu apllicationnya.
 .
 .
 Ada 3 role yaitu: admin, seller, dan buyer.
