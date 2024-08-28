@@ -13,4 +13,8 @@ public interface OrderRepository extends JpaRepository<Order,Integer> {
             WHERE o.id = :orderId
             """)
     Integer countShipment(@Param("orderId") Integer orderId);
+
+
+
+
 }

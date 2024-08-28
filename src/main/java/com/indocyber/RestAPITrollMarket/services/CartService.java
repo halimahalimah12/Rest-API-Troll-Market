@@ -32,6 +32,13 @@ public class CartService {
         this.accountRepository = accountRepository;
     }
 
+    public  List<CartRowResponseDto>getAll(){
+        List<Cart> cartList = cartRepository.findAll();
+
+        return cartList.stream()
+                .map(this::convertResponseDto)
+                .toList();
+    }
     public List<CartRowResponseDto> getAllById(Integer id) {
         List<Cart> cartList = cartRepository.findAllByBuyer(id);
         List<CartRowResponseDto> cartRowResponseDtoList = cartList.stream()

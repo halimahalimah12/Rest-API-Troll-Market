@@ -26,6 +26,10 @@ public class CartController {
         this.cartService = cartService;
     }
 
+    @GetMapping("")
+    public  ResponseEntity<List<CartRowResponseDto>> getAll(){
+        return  ResponseEntity.ok(cartService.getAll());
+    }
     @GetMapping("{id}")
     public ResponseEntity<List<CartRowResponseDto>> getAllById (@PathVariable Integer id) {
         return ResponseEntity.ok(cartService.getAllById(id));

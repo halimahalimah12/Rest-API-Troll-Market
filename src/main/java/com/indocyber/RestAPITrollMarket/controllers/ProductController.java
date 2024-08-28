@@ -6,6 +6,8 @@ import com.indocyber.RestAPITrollMarket.services.ProductService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("api/v1/merchandise")
 public class ProductController {
@@ -15,12 +17,15 @@ public class ProductController {
         this.productService = productService;
     }
 
+    @GetMapping("")
+    public  ResponseEntity<List<ProductResponseDto>> getAll(){
+        return ResponseEntity.ok(productService.getAll());
+    }
     @GetMapping("{id}")
     public ResponseEntity<ProductResponseDto> getById (@PathVariable Integer id) {
         return ResponseEntity.ok(productService.getById(id));
     }
-
-
+    
     @PutMapping("discontinue/{id}")
     public ResponseEntity<ProductResponseDto> updateIsService (@PathVariable Integer id) {
         return ResponseEntity.ok(productService.discontinue(id));

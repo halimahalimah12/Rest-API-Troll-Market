@@ -5,6 +5,8 @@ import com.indocyber.RestAPITrollMarket.models.Product;
 import com.indocyber.RestAPITrollMarket.repositories.ProductRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class ProductService {
     private final ProductRepository productRepository;
@@ -13,6 +15,13 @@ public class ProductService {
         this.productRepository = productRepository;
     }
 
+    public List<ProductResponseDto> getAll(){
+        List<Product> productList = productRepository.findAll();
+        return productList.stream()
+                .map(this::convertResponeDto)
+                .toList();
+
+    }
     public ProductResponseDto discontinue(Integer id) {
         Product product = findProduct(id);
         product.setDiscontinue(true);

@@ -46,6 +46,8 @@ public class AuthConfiguration {
                                 .requestMatchers(HttpMethod.POST,"/api/v1/cart").hasAuthority("Buyer")
                                 .requestMatchers(HttpMethod.GET,"/api/v1/cart").hasAuthority("Buyer")
                                 .requestMatchers(HttpMethod.DELETE,"/api/v1/cart/**").hasAuthority("Buyer")
+                                .requestMatchers(HttpMethod.GET,"/api/v1/order").hasAuthority("Admin")
+                                .requestMatchers(HttpMethod.GET,"/api/v1/order/**").hasAuthority("Admin")
                                 .anyRequest().authenticated())
                 .httpBasic(httpBasic ->httpBasic.disable())
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
